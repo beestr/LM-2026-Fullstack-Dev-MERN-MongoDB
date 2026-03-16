@@ -1,0 +1,48 @@
+-> Identify the following components:
+    1. Client (Browser)
+        ->  Client adalah perangkat yang digunakan user untuk mengakses sebuah 
+            aplikasi seperti Google Chrom, Microsoft Edge, dan lain-lain.
+        ->  Fungsinya seperti untuk mengirim request ke server dan menampilkan 
+            halaman web ke user.
+        ->  Contohnya user membuka website portal mahasiswa di browser.
+
+    2. Frontend (UI Layer)
+        -> Frontend adalah tampilan yang dilihat dan digunakan oleh user. Fe ini
+            biasanya dibuat dengan HTML, CSS, JavaScript.
+        ->  Fe menerima input dari user lalu mengirimnya ke Backend.
+        ->  Contohnya seperti halaman login, dashboard, tombol submit 
+            form input, dan lain-lain.
+
+    3. Backend (Server)
+        ->  Backend adalah bagian yang memproses data dan logika aplikasi di server.
+        ->  fungsinya seperti untuk memproses request dari fe,
+            mengambil atau menyimpan data ke database,
+            mengirim respon kembali ke fe.
+        ->  Contohnya seperti Node.js, Laravel, dan lain-lain.
+
+    4. Database (MongoDB - conceptual)
+        ->  Database adalah tempat menyipan data aplikasi
+        ->  Contohnya seperti data user, data mahasiswam data absensi, data produk, dan lain-lain.
+
+-> Draw of visualize the architecture flow
+            User
+             |
+             v
+        Client (Browser)
+             |
+             v
+        Frontend (UI)
+             |
+             v
+        Backend (Server)
+             |
+             v
+        Database (MongoDB)
+    
+    Alur kerjanya:
+    ->  User membuka website di browser
+    ->  Browser menampilkan frontend
+    ->  Frontend mengirim request ke backend
+    ->  Backend memproses dan mengambil data dari database
+    ->  Data dikirim kembali ke frontend
+    ->  Hasilnya ditampilkan ke user
