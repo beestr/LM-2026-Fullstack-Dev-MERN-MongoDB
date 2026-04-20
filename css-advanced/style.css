@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 1rem;
+}
+
+header, nav, footer {
+    text-align: center;
+    padding: 2vh;
+    background-color: lightgray;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0 2vw;
+}
+
+nav li {
+    display: inline;
+    margin: 0 2vw;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2vw;
+    padding: 2vw;
+}
+
+.card {
+    background-color: azure;
+    padding: 5vh;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    body {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    body {
+        font-size: 1.4rem;
+    }
+}
