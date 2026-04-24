@@ -1,29 +1,59 @@
-body {
+/* RESET */
+* {
     margin: 0;
-    font-family: Arial;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.box1 {
-    background-color: lightblue;
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f5f7fa;
+}
+
+/* BOX STYLE */
+.box1, .box2 {
+    flex: 1;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
     font-weight: bold;
     font-size: 24px;
-    padding: 20px;
-    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* WARNA */
+.box1 {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
 }
 
 .box2 {
-    background-color: lightgray;
-    font-weight: bold;
-    font-size: 24px;
-    padding: 20px;
-    margin: 10px;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: white;
 }
 
-body {
-    display: flex;
-    flex-direction: row;
+/* ========================= */
+/* ✅ TABLET (<= 1024px) */
+/* ========================= */
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+    }
+
+    .box1, .box2 {
+        font-size: 22px;
+        padding: 30px;
+    }
 }
 
+/* ========================= */
+/* ✅ MOBILE (<= 768px) */
+/* ========================= */
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -31,15 +61,6 @@ body {
 
     .box1, .box2 {
         font-size: 18px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    body {
-        flex-direction: column;
-    }
-
-    .box1, .box2 {
-        font-size: 22px;
+        padding: 25px;
     }
 }
