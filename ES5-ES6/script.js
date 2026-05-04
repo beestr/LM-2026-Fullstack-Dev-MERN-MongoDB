@@ -1,30 +1,59 @@
-// Step 2: Convert var to let and const
+// Rewrite ES5 to ES6 Lab
+
+// STEP 2: Convert Variables (var -> let/const)
+
+// ES5
+var oldName = "Belva";
+var oldAge = 20;
+
+// ES6
+const name = "Belva";
 let age = 20;
-age = 21; // let allows reassignment
+age = 21;
 
-const name = "Belva"; // const cannot be reassigned
-
-console.log("Age:", age);
 console.log("Name:", name);
+console.log("Age:", age);
 
-// Step 3: Convert function to arrow function
-const greet = (userName) => {
-    return `Hello, ${userName}!`;
+// STEP 3: Convert Functions to Arrow Functions
+
+// ES5 function
+function greetUser(user) {
+    return "Hello " + user;
+}
+
+// ES6 arrow function
+const greetUserES6 = (user) => {
+    return `Hello ${user}`;
 };
 
-console.log(greet(name));
+console.log(greetUser("Belva"));
+console.log(greetUserES6("Belva"));
 
-// Another arrow function
-const addNumbers = (a, b) => a + b;
-console.log("Addition:", addNumbers(5, 3));
+// ES5 function expression
+var multiplyOld = function(a, b) {
+    return a * b;
+};
 
-// Step 4: Template literals
-const course = "JavaScript";
-const message = `I am learning ${course} in this lab.`;
+// ES6 arrow function
+const multiplyNew = (a, b) => a * b;
 
-console.log(message);
+console.log("Multiply Old:", multiplyOld(2, 3));
+console.log("Multiply New:", multiplyNew(2, 3));
 
-// Step 5: Destructuring
+// STEP 4: Template Literals
+
+// ES5 string concatenation
+var oldMessage = "My name is " + name + " and I am " + age + " years old.";
+
+// ES6 template literal
+const newMessage = `My name is ${name} and I am ${age} years old.`;
+
+console.log(oldMessage);
+console.log(newMessage);
+
+// STEP 5: Modern ES6 Features
+
+// Object destructuring
 const student = {
     firstName: "Belva",
     major: "Informatics Engineering"
@@ -32,31 +61,34 @@ const student = {
 
 const { firstName, major } = student;
 
-console.log("First Name:", firstName);
-console.log("Major:", major);
+console.log(firstName);
+console.log(major);
 
 // Array destructuring
-const colors = ["Red", "Blue", "Green"];
-const [color1, color2, color3] = colors;
+const fruits = ["Apple", "Banana", "Orange"];
+const [fruit1, fruit2, fruit3] = fruits;
 
-console.log(color1, color2, color3);
+console.log(fruit1, fruit2, fruit3);
 
-// Spread operator with arrays
-const numbers1 = [1, 2, 3];
-const numbers2 = [4, 5, 6];
-const mergedNumbers = [...numbers1, ...numbers2];
+// Spread operator for arrays
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const combinedArray = [...array1, ...array2];
 
-console.log("Merged Array:", mergedNumbers);
+console.log(combinedArray);
 
-// Spread operator with objects
-const obj1 = { a: 1, b: 2 };
-const obj2 = { c: 3, d: 4 };
+// Spread operator for objects
+const object1 = { a: 1, b: 2 };
+const object2 = { c: 3, d: 4 };
 
-const mergedObject = { ...obj1, ...obj2 };
-console.log("Merged Object:", mergedObject);
+const combinedObject = { ...object1, ...object2 };
+
+console.log(combinedObject);
 
 // Default parameters
-const multiply = (x = 2, y = 3) => x * y;
+const calculate = (x = 10, y = 5) => {
+    return x + y;
+};
 
-console.log("Multiply default:", multiply());
-console.log("Multiply custom:", multiply(4, 5));
+console.log(calculate());
+console.log(calculate(20, 10));
