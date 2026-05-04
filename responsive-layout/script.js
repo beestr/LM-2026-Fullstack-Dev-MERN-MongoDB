@@ -1,1 +1,1 @@
-console.log("Responsive layout loaded");
+console.log("Responsive layout lab loaded successfully");
