@@ -1,45 +1,127 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>CSS Basics</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Basics</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
 
-    <header>
-        <h1>My Website</h1>
-    </header>
-
-    <main>
-        <section>
-            <h2>Box Model Example</h2>
-            <p>This is a box with margin, padding, and border</p>
-        </section>
-
-        <section class="flex-container">
-            <div class="item">1</div>
-            <div class="item">2</div>
-            <div class="item">3</div>
-        </section>
-
-        <section>
-            <h2>Form</h2>
-            <form>
-                <label>Name:</label>
-                <input type="text">
-
-                <label>Email:</label>
-                <input type="email">
-
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026</p>
-    </footer>
-
-</body>
+        <header class="site-header">
+            <div class="header-inner">
+                <div class="logo">CSS Basics Lab</div>
+                <nav class="nav">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
+        </header>
+    
+        <main class="main-content">
+    
+            <section class="section">
+                <h2 class="section-title">CSS Box Model</h2>
+                <p class="section-desc">
+                    Every HTML element is a rectangular box. The box model defines the
+                    <strong>content</strong>, <strong>padding</strong>,
+                    <strong>border</strong>, and <strong>margin</strong> layers around it.
+                </p>
+    
+                <div class="box-model-demo">
+                    <div class="box-margin">
+                        margin
+                        <div class="box-border">
+                            border
+                            <div class="box-padding">
+                                padding
+                                <div class="box-content">content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2 class="section-title">Flexbox Layout</h2>
+                <p class="section-desc">
+                    Flexbox aligns child elements along a row or column. The properties
+                    below control direction, spacing, and alignment.
+                </p>
+    
+                <div class="flex-container">
+                    <div class="flex-card">
+                        <span class="card-icon">&#9681;</span>
+                        <h3>display: flex</h3>
+                        <p>Activates Flexbox on the parent container.</p>
+                    </div>
+                    <div class="flex-card">
+                        <span class="card-icon">&#8596;</span>
+                        <h3>justify-content</h3>
+                        <p>Distributes space along the main axis (horizontal).</p>
+                    </div>
+                    <div class="flex-card">
+                        <span class="card-icon">&#8597;</span>
+                        <h3>align-items</h3>
+                        <p>Aligns items along the cross axis (vertical).</p>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2 class="section-title">Styled HTML Form</h2>
+                <p class="section-desc">
+                    CSS improves form usability with padding, rounded borders, and
+                    clear focus states.
+                </p>
+        
+                <form class="styled-form" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" />
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" />
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="course">Select Course</label>
+                        <select id="course">
+                        <option value="">-- Choose a course --</option>
+                        <option value="html">HTML Fundamentals</option>
+                        <option value="css">CSS Basics</option>
+                        <option value="js">JavaScript Essentials</option>
+                        <option value="mern">MERN Stack</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="Write something..."></textarea>
+                    </div>
+            
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </section>
+        
+        </main>
+        
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <p class="footer-copy">&copy; 2025 CSS Basics Lab. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </footer>
+    
+    </body>
 </html>

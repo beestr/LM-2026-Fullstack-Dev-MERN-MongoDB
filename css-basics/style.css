@@ -1,119 +1,358 @@
-/* RESET & GLOBAL */
+/* ============================================================
+   CSS Basics Lab – style.css
+   Covers: Box Model · Flexbox · Form Styling · Page Layout
+   ============================================================ */
+
+
+/* ── 1. CSS Reset & Base Styles ─────────────────────────── */
+
+/* Remove default browser margin/padding from all elements */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding and border are included in width/height */
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2d2d2d;
+  background-color: #f5f6fa;
 }
 
-/* HEADER & FOOTER */
-header, footer {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    color: white;
-    text-align: center;
-    padding: 25px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-header h1 {
-    font-size: 28px;
+
+/* ── 2. Step 7 – Header Layout (Flexbox) ────────────────── */
+
+.site-header {
+  background-color: #1e293b;  /* dark navy */
+  color: #ffffff;
+  padding: 0 2rem;             /* padding: top/bottom left/right */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* MAIN LAYOUT */
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
+.header-inner {
+  /* FLEXBOX: row layout, space between logo and nav */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  /* pushes logo left, nav right */
+  align-items: center;             /* centers items vertically */
+  max-width: 1100px;
+  margin: 0 auto;                  /* centers the inner container */
+  height: 60px;
 }
 
-/* SECTION STYLE */
-section {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #7dd3fc;              /* light blue accent */
 }
 
-section h2 {
-    margin-bottom: 10px;
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;                 /* gap between nav links */
 }
 
-/* BOX MODEL EXAMPLE */
-section p {
-    margin-top: 10px;
-    padding: 15px;
-    border: 2px solid #4facfe;
-    border-radius: 8px;
-    background-color: #eef6ff;
+.nav a {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  transition: color 0.2s;
 }
 
-/* FLEXBOX */
+.nav a:hover {
+  color: #ffffff;
+}
+
+
+/* ── 3. Step 7 – Main Content Layout ────────────────────── */
+
+.main-content {
+  max-width: 1100px;
+  margin: 0 auto;              /* margin: centers the block horizontally */
+  padding: 2.5rem 2rem;        /* padding: inner breathing room */
+}
+
+/* Section card */
+.section {
+  /* BOX MODEL: margin separates sections, padding creates inner space */
+  margin-bottom: 2.5rem;       /* margin-bottom: space below each section */
+  padding: 2rem;               /* padding: inner space inside the card */
+  border: 1px solid #e2e8f0;  /* border: thin outline around the card */
+  border-radius: 12px;
+  background-color: #ffffff;
+  width: 100%;                 /* width: stretches to container */
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #7dd3fc;  /* border-bottom: accent underline */
+}
+
+.section-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* ── 4. Step 4 – Box Model Visual Demo ──────────────────── */
+
+/*
+   BOX MODEL LAYERS (outermost → innermost):
+   margin  →  border  →  padding  →  content
+*/
+
+.box-model-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MARGIN layer – outermost space, transparent */
+.box-margin {
+  margin: 24px;                 /* margin: space outside the border */
+  padding: 16px;
+  background-color: #fef9c3;  /* yellow – represents margin area */
+  border: 2px dashed #f59e0b;
+  font-size: 0.75rem;
+  color: #92400e;
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* BORDER layer */
+.box-border {
+  border: 6px solid #3b82f6;  /* border: visible edge around the element */
+  padding: 16px;
+  background-color: #eff6ff;  /* light blue – represents border area */
+  font-size: 0.75rem;
+  color: #1e40af;
+  text-align: center;
+}
+
+/* PADDING layer – space between border and content */
+.box-padding {
+  padding: 20px;               /* padding: inner space before content */
+  background-color: #d1fae5;  /* green – represents padding area */
+  font-size: 0.75rem;
+  color: #065f46;
+  text-align: center;
+}
+
+/* CONTENT layer – innermost box */
+.box-content {
+  /* width and height define the content area size */
+  width: 160px;
+  height: 60px;
+  background-color: #818cf8;  /* purple – represents the content box */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+
+/* ── 5. Step 5 – Flexbox Cards ──────────────────────────── */
+
 .flex-container {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  /* FLEXBOX parent */
+  display: flex;               /* activates flexbox */
+  flex-direction: row;         /* children laid out in a row (default) */
+  justify-content: space-between; /* even space between cards */
+  align-items: stretch;        /* cards all match height of tallest */
+  gap: 1rem;                   /* gap between flex children */
+  flex-wrap: wrap;             /* wrap to next line on small screens */
 }
 
-.item {
-    background: linear-gradient(135deg, #43e97b, #38f9d7);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 25px;
-    border-radius: 10px;
-    width: 80px;
-    text-align: center;
-    transition: transform 0.3s ease;
+.flex-card {
+  /* BOX MODEL on each flex child */
+  flex: 1;
+  min-width: 200px;
+  padding: 1.5rem;             /* padding: inner space */
+  border: 1px solid #e2e8f0;  /* border: card outline */
+  border-radius: 10px;
+  background-color: #f8fafc;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.item:hover {
-    transform: scale(1.1);
+.flex-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* FORM */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
+.card-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.75rem;
 }
 
+.flex-card h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 0.5rem;
+}
+
+.flex-card p {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+
+/* ── 6. Step 6 – Form Styling ───────────────────────────── */
+
+.styled-form {
+  max-width: 560px;
+}
+
+/* Form group – label + input stacked vertically */
+.form-group {
+  display: flex;
+  flex-direction: column;      /* stack label above input */
+  gap: 6px;
+  margin-bottom: 1.25rem;      /* margin-bottom: space between fields */
+}
+
+/* Labels */
 label {
-    font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
 }
 
-input {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    transition: 0.3s;
+/* Input fields, select, textarea */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  padding: 0.6rem 0.875rem;   /* padding: inner spacing inside input */
+  border: 1.5px solid #cbd5e1; /* border: visible outline */
+  border-radius: 8px;          /* border-radius: rounded corners */
+  background-color: #f8fafc;   /* background-color: light fill */
+  font-size: 0.95rem;
+  color: #1e293b;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  font-family: inherit;
 }
 
-input:focus {
-    border-color: #4facfe;
-    outline: none;
-    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+/* Focus state – highlights active field */
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #7dd3fc;
+  box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.25);
+  background-color: #ffffff;
 }
 
-button {
-    padding: 12px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+textarea {
+  resize: vertical;            /* allow vertical resize only */
 }
 
-button:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+/* Form action buttons row */
+.form-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Base button styles */
+.btn {
+  padding: 0.6rem 1.5rem;      /* padding: inner spacing */
+  border-radius: 8px;           /* border-radius: rounded pill shape */
+  border: 1.5px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primary button – submit */
+.btn-primary {
+  background-color: #2563eb;   /* background-color: blue fill */
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+/* Secondary button – reset */
+.btn-secondary {
+  background-color: #ffffff;
+  color: #475569;
+  border-color: #cbd5e1;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
+}
+
+
+/* ── 7. Step 7 – Footer Layout (Flexbox) ────────────────── */
+
+.site-footer {
+  background-color: #1e293b;
+  color: #94a3b8;
+  padding: 0 2rem;
+  margin-top: 1rem;
+}
+
+.footer-inner {
+  /* FLEXBOX: copyright left, links right */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 52px;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #e2e8f0;
 }
