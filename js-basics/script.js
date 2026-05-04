@@ -1,46 +1,63 @@
-// VARIABEL
-// var bisa diubah dan bisa dideklarasikan ulang
-var city = "Jakarta";
-// let bisa diubah tapi tidak bisa dideklarasikan ulang
-let age = 19;
-// const tidak bisa diubah sama sekali setelah dideklarasikan
-const PI = 3.14;
+// Step 2: Variables
+var studentName = "Belva";
+let studentAge = 20;
+const isStudent = true;
 
-// TIPE DATA
-// number = tipe data angka
-let num = 10;
-// string = tipe data teks
-let str = "Hello";
-// boolean = hanya true atau false
-let bool = true;
-// array = kumpulan data dalam satu variabel
-let arr = [1, 2, 3];
-// object = kumpulan data dengan key-value pair
-let obj = { name: "Belva", age: 20, student: true };
+// Display variable values
+console.log("Student Name:", studentName);
+console.log("Student Age:", studentAge);
+console.log("Is Student:", isStudent);
 
-// typeof digunakan untuk mengecek tipe data sebuah variabel
-console.log(typeof num);    // "number"
-console.log(typeof str);    // "string"
-console.log(typeof bool);   // "boolean"
-console.log(typeof arr);    // "object" (array dianggap object di JS)
-console.log(typeof obj);    // "object"
+// Step 3: Data Types
+let numberExample = 100;
+let stringExample = "JavaScript Basics";
+let booleanExample = false;
+let arrayExample = ["HTML", "CSS", "JavaScript"];
+let objectExample = {
+    firstName: "Belva",
+    major: "Informatics Engineering"
+};
 
-// OPERATOR ARITMATIKA
-let a = 10;
-let b = 7;
-console.log(a + b); // Penjumlahan = 17
-console.log(a - b); // Pengurangan = 3
-console.log(a * b); // Perkalian   = 70
-console.log(a / b); // Pembagian   = 1.428...
-console.log(a % b); // Modulus (sisa bagi) = 3
+// Display data values
+console.log("Number:", numberExample);
+console.log("String:", stringExample);
+console.log("Boolean:", booleanExample);
+console.log("Array:", arrayExample);
+console.log("Object:", objectExample);
 
-// OPERATOR PERBANDINGAN
-console.log(a > b);    // true  - a lebih besar dari b
-console.log(a < b);    // false - a tidak lebih kecil dari b
-console.log(a === 10); // true  - a sama persis dengan 10
-console.log(a !== b);  // true  - a tidak sama dengan b
+// Check data types using typeof
+console.log("Type of numberExample:", typeof numberExample);
+console.log("Type of stringExample:", typeof stringExample);
+console.log("Type of booleanExample:", typeof booleanExample);
+console.log("Type of arrayExample:", typeof arrayExample); // object in JS
+console.log("Type of objectExample:", typeof objectExample);
 
-// OPERATOR LOGIKA
-console.log(a > 5 && b < 5); // false - && = kedua kondisi harus true
-console.log(a > 20 || b < 5); // false - || = salah satu harus true
-console.log(!(a === b));       // true  - ! = membalik nilai boolean
+// Step 4: Arithmetic Operators
+let num1 = 10;
+let num2 = 5;
+
+console.log("Addition:", num1 + num2);
+console.log("Subtraction:", num1 - num2);
+console.log("Multiplication:", num1 * num2);
+console.log("Division:", num1 / num2);
+
+// Comparison Operators
+console.log("num1 > num2:", num1 > num2);
+console.log("num1 < num2:", num1 < num2);
+console.log("num1 == num2:", num1 == num2);
+console.log("num1 != num2:", num1 != num2);
+
+// Logical Operators
+let x = true;
+let y = false;
+
+console.log("x && y:", x && y);
+console.log("x || y:", x || y);
+console.log("!x:", !x);
+
+// Conditional example
+if (num1 > num2 && isStudent) {
+    console.log("Condition is true");
+} else {
+    console.log("Condition is false");
+}
