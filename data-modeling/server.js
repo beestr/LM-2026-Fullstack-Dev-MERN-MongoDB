@@ -1,17 +1,24 @@
 const express = require("express");
 const dotenv = require("dotenv");
+
 const connectDB = require("./config/db");
+const demoRoutes = require("./routes/demo.route");
 
 dotenv.config();
 
 const app = express();
 
-connectDB();
-
+// middleware
 app.use(express.json());
 
-app.use("/api", require("./routes/demo.route"));
+// connect database
+connectDB();
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+// routes
+app.use("/api", demoRoutes);
+
+// server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

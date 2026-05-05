@@ -4,48 +4,40 @@ const router = express.Router();
 const User = require("../models/user.model");
 const Task = require("../models/task.model");
 
-// Create sample user + task
-router.post("/create", async (req, res) => {
+
+// ✅ CREATE USER
+router.post("/users", async (req, res) => {
   try {
-    const user = await User.create({
-      name: "John Doe",
-      email: "john@example.com"
-    });
-
-    const task = await Task.create({
-      title: "Learn MongoDB",
-      description: "Practice Mongoose schema",
-      userId: user._id
-    });
-
-    res.status(201).json({
-      success: true,
-      user,
-      task
-    });
-  } catch (error) {
-    res.status(400).json({
-      success: false,
-      message: error.message
-    });
+    const user = await User.create(req.body);
+    res.status(201).json(user);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
 
-// Fetch tasks + populate user
-router.get("/tasks", async (req, res) => {
-  try {
-    const tasks = await Task.find().populate("userId");
 
-    res.json({
-      success: true,
-      data: tasks
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
+// ✅ CREATE TASK
+router.post("/tasks", async (req, res) => {
+  try {
+    const task = await Task.create(req.body);
+    res.status(201).json(task);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
+});
+
+
+// ✅ GET USERS
+router.get("/users", async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+});
+
+
+// ✅ GET TASKS + POPULATE USER
+router.get("/tasks", async (req, res) => {
+  const tasks = await Task.find().populate("userId");
+  res.json(tasks);
 });
 
 module.exports = router;
